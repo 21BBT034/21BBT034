@@ -1,0 +1,173 @@
+ # R as calculator
+> 1+1
+[1] 2
+> sqrt(45)
+[1] 6.708204
+> log(x=25, base=2)
+[1] 4.643856
+ # vector
+> myvec = c(2,4,6,8)
+> myvec
+[1] 2 4 6 8
+> myvec[3]
+[1] 6
+> myvec2 = c(1,3,5,7)
+> myvec2[2]
+[1] 3
+> myvec3 = myvec-myvec2
+> myvec3
+[1] 1 1 1 1
+> sum(myvec)
+[1] 20
+> prod(myvec)
+[1] 384
+ # Sequence
+ a = seq(1:10)
+> a
+ [1]  1  2  3  4  5  6  7  8  9 10
+> b = seq(3,18,6)
+> b
+[1]  3  9 15
+> c = seq(3,100,length.out=5)
+> c
+[1]   3.00  27.25  51.50  75.75 100.00
+> rep(x=2,times=5)
+[1] 2 2 2 2 2
+> rep(x=c(1,2,3),times=3)
+[1] 1 2 3 1 2 3 1 2 3
+> rep(x=c(1,2,3),times=3,each=2)
+ [1] 1 1 2 2 3 3 1 1 2 2 3 3 1 1 2 2 3 3
+ # Ascending
+> sort(x=c(-2,1,3,-6))
+[1] -6 -2  1  3
+ # Decreasing
+ > sort(x=c(-2,1,3,-6),decreasing = TRUE )
+[1]  3  1 -2 -6
+ # vector operation
+> length(x=c(1:100))
+[1] 100
+> myvec4 = c(1:50)
+> myvec[4]
+[1] 8
+> myvec4[4]
+[1] 4
+ # vector oriented behaviour
+> Eg = 8.5:1
+> Eg
+[1] 8.5 7.5 6.5 5.5 4.5 3.5 2.5 1.5
+> Eg = seq(8.5,1,length.out=5)
+> Eg
+[1] 8.500 6.625 4.750 2.875 1.000
+> sum(Eg)
+[1] 23.75
+> prod(Eg)
+[1] 769.0176
+ > # Matrix
+> a = matrix(data = c(1:4))
+> a
+     [,1]
+[1,]    1
+[2,]    2
+[3,]    3
+[4,]    4
+> a = matrix(data = c(1:4),nrow=2,ncol=2)
+> a
+     [,1] [,2]
+[1,]    1    3
+[2,]    2    4
+> a = matrix(data = c(1:4),nrow=2,ncol=2,byrow = TRUE)
+> a
+     [,1] [,2]
+[1,]    1    2
+[2,]    3    4
+> X = c(1,2,3)
+> Y = c(4,5,6)
+> Z = c(7,8,9)
+> b = rbind(X,Y,Z)
+> b
+  [,1] [,2] [,3]
+X    1    2    3
+Y    4    5    6
+Z    7    8    9
+ b[1,]
+[1] 1 2 3
+> b[2,2]
+Y 
+5 
+> nrow(b)
+[1] 3
+> ncol(b)
+[1] 3
+> diag(b)
+[1] 1 5 9
+> t(b)
+     X Y Z
+[1,] 1 4 7
+[2,] 2 5 8
+[3,] 3 6 9
+> c=diag(x=3)
+> c
+     [,1] [,2] [,3]
+[1,]    1    0    0
+[2,]    0    1    0
+[3,]    0    0    1
+ #string
+> s1="I AM PERAGATHIS"
+> s1
+[1] "I AM PERAGATHIS"
+> s2="in 3rd year"
+> s2
+[1] "in 3rd year"
+> nchar(s1)
+[1] 13
+> s3=cat(s1,s2)
+> I AM PERAGATHIS in 3rd year
+ #substrings
+> substr(x=s3, start=4, stop=10)
+> pat="how much wood could  a woodchuck chuck?"
+> sub(pattern="chuck",replace="hurl",x=pat)
+[1] "how much wood could  a woodhurl chuck?"
+> gsub(pattern="chuck",replace="hurl",x=pat)
+[1] "how much wood could  a woodhurl hurl?"
+ #dataframes
+> mydata=data.frame(name=c("Madhan","Vinu","Rogith"),age=c(20,20,19),sex=c("m","m","m"))
+> mydata
+      name age sex
+1   Madhan  20   m
+2     Vinu  20   m
+3   Rogith  19   m
+> mydata$name
+[1] "Madhan"   "Vinu"  "Rogith"
+> nrow(mydata)
+[1] 3
+> ncol(mydata)
+[1] 3
+> dim(mydata)
+[1] 3 3
+ # Adding new data
+> newdata=data.frame(name=c("Kavin"),age=19,sex="m")
+> newdata
+
+> newdata
+   name age sex
+1 Kavin  19   m
+> mydata2=rbind(mydata,newdata)
+> mydata2
+      name age sex
+1    Madhan 20   m
+2     Vinu  20   m
+3   Rogith  19   m
+4    Kavin  19   m
+ #basic p-lotting
+> distance=c(1.1,2.2,3.3,4.4,5.5)
+> distance
+[1] 1.1 2.2 3.3 4.4 5.5
+> time=c(3,4,5,6,7)
+> distance1=(15:20)
+> plot(distance,time)
+plot(distance,time,type="l")
+> plot(distance,time,type="b",main="my spped plot",xlab="distance",ylab="time")
+> plot(distance,time,type="b",main="my speed plot",xlab="distance",ylab="time")
+> plot(distance,time,type="b",main="my speed plot",xlab="distance",ylab="time",col=2)
+
+ 
